@@ -1,0 +1,34 @@
+@import "../../styles/variables.scss";
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  height: 50px;
+  width: auto;
+  padding: 0 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: $black_80;
+
+    p {
+      color: $white;
+    }
+  }
+
+  p {
+    color: $black_50;
+  }
+
+  &.active {
+    p {
+      color: $white;
+    }
+  }
+}

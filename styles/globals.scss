@@ -1,0 +1,71 @@
+@import "./variables.scss";
+@import "./sass.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  background-color: $black;
+}
+
+main {
+  padding: 0 100px;
+}
+
+#__next {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $red;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  @include text("CircularBold", $h1Size, $white_80);
+}
+
+h2 {
+  @include text("CircularBold", $h2Size, $white_80);
+}
+
+h3 {
+  @include text("CircularBold", $h3Size, $white_80);
+}
+
+h4 {
+  @include text("CircularBold", $h4Size, $white_80);
+}
+
+h5 {
+  @include text("CircularBold", $h5Size, $white_80);
+}
+
+p,
+li {
+  @include text("CircularBook", $pSize, $white_70);
+
+  &.bold {
+    @include text("CircularBold", $pSize, $white_70);
+  }
+
+  &.caption {
+    @include text("CircularBold", $captionSize, $white_50);
+  }
+}

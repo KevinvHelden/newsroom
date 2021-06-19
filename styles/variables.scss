@@ -1,0 +1,51 @@
+// Colours --------------------------------------------------------------------------------------------------
+$black: #171e20;
+$black_80: #2a2a2a;
+$black_70: #3e3f3f;
+$black_50: #686969;
+$white_50: #8b8f90;
+$white_70: #b9bcbc;
+$white_80: #d0d2d2;
+$white: #ffffff;
+$darkPurple: #413c9c;
+$purple: #7d2cf6;
+$blue: #256eff;
+$cyan: #00bafa;
+$green: #00935e;
+$orange: #ff9f32;
+$red: #ff495c;
+$pink: #ff7273;
+
+// Typography -----------------------------------------------------------------------------------------------
+$h1Size: 4.2rem;
+$h2Size: 3.15rem;
+$h3Size: 2.33rem;
+$h4Size: 1.75rem;
+$h5Size: 1.33rem;
+$pSize: 1rem;
+$captionSize: 0.75rem;
+
+// Fonts ----------------------------------------------------------------------------------------------------
+@font-face {
+  font-family: "CircularBold";
+  src: url("../public/fonts/CircularStd-Bold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CircularBoldItalic";
+  src: url("../public/fonts/CircularStd-BoldItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CircularBook";
+  src: url("../public/fonts/CircularStd-Book.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CircularBookItalic";
+  src: url("../public/fonts/CircularStd-BookItalic.ttf");
+  font-display: swap;
+}

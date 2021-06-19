@@ -1,0 +1,24 @@
+{
+  "articles": [
+    {
+      "title": "A Visual Type Scale",
+      "date": "2020-01-01",
+      "id": "A_Visual_Type_Scale",
+      "author": {
+        "name": "John Doe",
+        "link": "/author/john_doe"
+      },
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+    },
+    {
+      "title": "A Visual Type Scale",
+      "date": "2020-01-02",
+      "id": "A_Visual_Type_Scale",
+      "author": {
+        "name": "John Doe",
+        "link": "/author/john_doe"
+      },
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+    }
+  ]
+}
