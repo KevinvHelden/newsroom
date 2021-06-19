@@ -1,3 +1,12 @@
 .root {
   display: flex;
+  flex-direction: column;
+
+  > p {
+    margin-bottom: 25px;
+  }
+
+  .articles {
+    display: flex;
+  }
 }

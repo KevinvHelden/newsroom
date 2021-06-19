@@ -3,14 +3,18 @@ import Article, { Article as ArticleProps } from "../article/article";
 
 type Props = {
   articles: ArticleProps[];
+  title: string;
 };
 
-export default function ArticleOverview({ articles }: Props) {
+export default function ArticleOverview({ articles, title }: Props) {
   return (
     <div className={styles.root}>
-      {articles.map((article: any) => (
-        <Article {...article} />
-      ))}
+      <p className="bold">{title}</p>
+      <div className={styles.articles}>
+        {articles.map((article: any) => (
+          <Article {...article} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -25,8 +25,7 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <p className="bold">LATEST ARTICLES</p>
-        <ArticleOverview articles={data.articles} />
+        <ArticleOverview title={"LATEST ARTICLES"} articles={data.articles} />
       </section>
     </Layout>
   );

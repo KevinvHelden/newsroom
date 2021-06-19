@@ -3,8 +3,8 @@
 .root {
   display: flex;
   max-width: 650px;
-  height: 150px;
-  margin-bottom: 50px;
+  height: 185px;
+  margin-right: 50px;
   overflow: hidden;
 
   .imageContainer {
@@ -18,20 +18,38 @@
 
   .articleInfo {
     height: 100%;
+    max-width: 315px;
+    width: 315px;
     display: flex;
     flex-direction: column;
+    text-overflow: ellipsis;
 
     a {
       h5 {
         color: $red;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 
     .info {
+      margin-top: 10px;
       display: flex;
       width: 100%;
       justify-content: space-between;
       align-items: center;
+
+      > :last-child {
+        width: auto;
+        text-align: right;
+      }
+
+      > div {
+        max-width: 60%;
+      }
 
       a {
         color: $white;
@@ -39,6 +57,24 @@
 
       p {
         color: $black_50;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    .description {
+      width: 100%;
+      height: fit-content;
+      margin-top: 10px;
+      overflow: hidden;
+
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }

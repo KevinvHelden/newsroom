@@ -3,7 +3,7 @@ import Link from "next/link";
 import Date from "../date/date";
 
 export type Article = {
-  link: string;
+  id: string;
   title: string;
   date: string;
   author: {
@@ -15,7 +15,7 @@ export type Article = {
 };
 
 export default function Article({
-  link,
+  id,
   title,
   date,
   author,
@@ -24,25 +24,33 @@ export default function Article({
 }: Article) {
   return (
     <div className={styles.root}>
-      <Link href={link}>
+      <Link href={`/articles/${id}`}>
         <div className={styles.imageContainer}></div>
       </Link>
-      <div className={styles.articleInfo}>
-        <Link href={link}>
-          <a>
-            <h5>{title}</h5>
-          </a>
-        </Link>
-        <div className={styles.info}>
-          <p>
-            By <Link href={author.link}>{author.name}</Link>
-          </p>
 
-          <p className="caption">
-            <Date dateString={date} />
-          </p>
+      <div className={styles.articleInfo}>
+        <div className={styles.titleContainer}>
+          <Link href={`/articles/${id}`}>
+            <a>
+              <h5>{title}</h5>
+            </a>
+          </Link>
         </div>
-        <p>{description}</p>
+        <div className={styles.info}>
+          <div>
+            <p>
+              By <Link href={author.link}>{author.name}</Link>
+            </p>
+          </div>
+          <div>
+            <p className="caption">
+              <Date dateString={date} />
+            </p>
+          </div>
+        </div>
+        <div className={styles.description}>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );
