@@ -1,0 +1,17 @@
+@import "../../styles/sass.scss";
+
+.root {
+  display: flex;
+  padding: 0 0 10px 0;
+  height: fit-content;
+  width: 300px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px $black_80 solid;
+  outline: none;
+  @include text("CircularBook", $pSize, $white);
+
+  &::placeholder {
+    @include text("CircularBook", $pSize, $black_50);
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../styles/sass.scss";
+
+.root {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 25px 75px;
+  cursor: pointer;
+  width: fit-content;
+  @include text("CircularBold", $pSize, $white);
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &.small {
+    padding: 15px;
+  }
+
+  &.primary {
+    background-color: $primary;
+  }
+
+  &.secondary {
+    background-color: $secondary;
+  }
+
+  &.ghost {
+    background-color: transparent;
+    border: 1.5px $secondary solid;
+  }
+
+  &.success {
+    background-color: $green;
+  }
+
+  &.warning {
+    background-color: $orange;
+  }
+
+  &.error {
+    background-color: $red;
+  }
+}

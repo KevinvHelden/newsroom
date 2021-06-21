@@ -1,6 +1,7 @@
 import styles from "./article.module.scss";
 import Link from "next/link";
 import Date from "../date/date";
+import User from "../user/user";
 
 export type Article = {
   id: string;
@@ -8,7 +9,7 @@ export type Article = {
   date: string;
   author: {
     name: string;
-    link: string;
+    id: string;
   };
   description: string;
   image?: string;
@@ -38,9 +39,8 @@ export default function Article({
         </div>
         <div className={styles.info}>
           <div>
-            <p>
-              By <Link href={author.link}>{author.name}</Link>
-            </p>
+            <p>By </p>
+            <User user={{ username: author.name, profileId: author.id }} />
           </div>
           <div>
             <p className="caption">

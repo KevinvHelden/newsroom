@@ -3,9 +3,9 @@
 .root {
   display: flex;
   max-width: 650px;
+  width: 650px;
   height: 185px;
   margin-right: 50px;
-  overflow: hidden;
 
   .imageContainer {
     height: 100%;
@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     text-overflow: ellipsis;
+    overflow: hidden;
 
     a {
       h5 {
@@ -42,6 +43,15 @@
       justify-content: space-between;
       align-items: center;
 
+      > :first-child {
+        display: flex;
+
+        > :first-child {
+          color: $black_50;
+          margin-right: 5px;
+        }
+      }
+
       > :last-child {
         width: auto;
         text-align: right;
@@ -56,7 +66,6 @@
       }
 
       p {
-        color: $black_50;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;

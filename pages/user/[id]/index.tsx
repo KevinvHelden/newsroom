@@ -6,20 +6,20 @@ import { fetcher } from "../../../lib/helper";
 
 export default function Article() {
   const { query } = useRouter();
-  const { data, error } = useSWR(`http://localhost:3000/api/articles`, fetcher);
+  const { data, error } = useSWR(`http://localhost:3000/api/user`, fetcher);
 
   if (error) return <div>{error.message}</div>;
   if (!data) return <Loader />;
 
-  const article = data.articles.find((article: any) => article.id === query.id);
+  const user = data.users.find((user: any) => user.id === query.id);
 
-  if (article) {
+  if (user) {
     return (
       <Layout>
-        <h1>{article.title}</h1>
+        <h1>{user.name}</h1>
       </Layout>
     );
   } else {
-    return <h1>Couldn't find your article</h1>;
+    return <h1>Couldn't find this author</h1>;
   }
 }

@@ -6,7 +6,17 @@
       "id": "A_Visual_Type_Scale",
       "author": {
         "name": "John Doe",
-        "link": "/author/john_doe"
+        "id": "1"
+      },
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+    },
+    {
+      "title": "A Visual Type Scale",
+      "date": "2020-01-02",
+      "id": "A_Visual_Type_Scale",
+      "author": {
+        "name": "Jane Doe",
+        "id": "2"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
     },
@@ -16,7 +26,7 @@
       "id": "A_Visual_Type_Scale",
       "author": {
         "name": "John Doe",
-        "link": "/author/john_doe"
+        "id": "1"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
     }

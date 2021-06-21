@@ -1,0 +1,52 @@
+@import "../../../styles/variables.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+  > p {
+    margin-bottom: 25px;
+  }
+
+  .article {
+    display: flex;
+    height: 500px;
+
+    .imageContainer {
+      height: 100%;
+      width: 50%;
+      min-width: 50%;
+      background-color: $black_80;
+      cursor: pointer;
+    }
+
+    .articleInfo {
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        cursor: pointer;
+        margin-bottom: 15px;
+      }
+
+      .details {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin-bottom: 50px;
+
+        a {
+          p {
+            color: $red;
+          }
+        }
+      }
+
+      button {
+        margin-top: auto;
+      }
+    }
+  }
+}

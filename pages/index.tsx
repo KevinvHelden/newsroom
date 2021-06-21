@@ -7,26 +7,32 @@ import Layout, { siteTitle } from "../components/layout/layout";
 import Loader from "../components/loader/loader";
 import Date from "../components/date/date";
 import ArticleOverview from "../components/articleOverview/articleOverview";
+import FeatureArticle from "../components/article/featureArticle/featureArticle";
 
 // Hooks & Helpers
 import useSWR from "swr";
 import { fetcher } from "../lib/helper";
 
 export default function Home() {
-  const { data, error } = useSWR("http://localhost:3000/api/articles", fetcher);
-  console.log(data);
+  const articles = useSWR("http://localhost:3000/api/articles", fetcher);
+  const featureArticle = useSWR(
+    "http://localhost:3000/api/articles/featureArticle",
+    fetcher
+  );
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <Loader />;
+  if (articles.error || featureArticle.error) return <div>Failed to load</div>;
+  if (!articles.data || !featureArticle.data) return <Loader />;
 
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <ArticleOverview title={"LATEST ARTICLES"} articles={data.articles} />
-      </section>
+      <FeatureArticle {...featureArticle.data.featureArticle} />
+      <ArticleOverview
+        title={"LATEST ARTICLES"}
+        articles={articles.data.articles}
+      />
     </Layout>
   );
 }

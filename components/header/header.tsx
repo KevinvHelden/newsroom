@@ -1,5 +1,8 @@
 import styles from "./header.module.scss";
 import Tab from "../tab/tab";
+import User from "../user/user";
+import Button from "../button/button";
+import Searchbar from "../searchbar/searchbar";
 
 type Props = {
   children?: any;
@@ -16,6 +19,13 @@ export default function Header({ children }: Props) {
           <Tab active={false} onClick={() => alert("change tab")}>
             <p>Feed</p>
           </Tab>
+        </div>
+        <div className={styles.right}>
+          <Searchbar />
+          <Button small variant="secondary">
+            Write your article
+          </Button>
+          <User user={{ username: "Jane Doe", profileId: "2" }} hasPicture />
         </div>
       </div>
     </div>
