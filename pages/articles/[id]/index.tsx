@@ -1,25 +1,39 @@
+// Components
 import Layout from "../../../components/layout/layout";
-import Loader from "../../../components/loader/loader";
+import DataLoader from "../../../components/dataLoader/dataLoader";
+
+// Hooks & Helpers
 import { useRouter } from "next/router";
-import useSWR from "swr";
 import { fetcher } from "../../../lib/helper";
+import { useEffect } from "react";
+import useSWR from "SWR";
+
+// State Providers
+import { ArticlesProvider } from "../../../stateContainers/articlesContainer";
 
 export default function Article() {
+  const { articles, setArticles } = ArticlesProvider.useContainer();
   const { query } = useRouter();
-  const { data, error } = useSWR(`http://localhost:3000/api/articles`, fetcher);
+  const fetchedArticles = useSWR(`articles`, fetcher);
+  const selectedArticle = articles?.data?.articles.find(
+    (article: any) => article.id === query.id
+  );
 
-  if (error) return <div>{error.message}</div>;
-  if (!data) return <Loader />;
+  useEffect(() => {
+    !articles && setArticles(fetchedArticles);
+  }, []);
 
-  const article = data.articles.find((article: any) => article.id === query.id);
-
-  if (article) {
-    return (
-      <Layout>
-        <h1>{article.title}</h1>
-      </Layout>
-    );
-  } else {
-    return <h1>Couldn't find your article</h1>;
-  }
+  return (
+    <DataLoader data={[articles]}>
+      {articles && (
+        <Layout>
+          {selectedArticle ? (
+            <h1>{selectedArticle.title}</h1>
+          ) : (
+            <h5>Sorry, this article doesn't exist</h5>
+          )}
+        </Layout>
+      )}
+    </DataLoader>
+  );
 }

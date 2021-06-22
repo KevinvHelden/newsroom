@@ -10,7 +10,7 @@ type Props = {
   date: string;
   author: {
     name: string;
-    link: string;
+    id: string;
   };
   description: string;
   image?: string;
@@ -26,6 +26,7 @@ export default function FeatureArticle({
   image,
   topics,
 }: Props) {
+  console.log(author);
   return (
     <div className={styles.root}>
       <p className="bold">FEATURE</p>
@@ -40,9 +41,9 @@ export default function FeatureArticle({
           <div className={styles.details}>
             <User
               user={{
-                username: "John Doe",
+                username: author.name,
                 profilePicture: "",
-                profileId: "1",
+                profileId: author.id,
               }}
               hasPicture
               alignPictureLeft
@@ -50,9 +51,12 @@ export default function FeatureArticle({
             <p className={"caption"}>
               <Date dateString={date} />
             </p>
-            {topics.map((topic) => {
+            {topics.map((topic: string, index: number) => {
               return (
-                <Link href={`/search?topics=${topic.toLowerCase()}`}>
+                <Link
+                  key={index}
+                  href={`/search?topics=${topic.toLowerCase()}`}
+                >
                   <a>
                     <p className={"caption"}>#{topic}</p>
                   </a>

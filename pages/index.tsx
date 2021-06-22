@@ -1,38 +1,47 @@
 // NextJS components
 import Head from "next/head";
-import Link from "next/link";
 
 // Components
 import Layout, { siteTitle } from "../components/layout/layout";
-import Loader from "../components/loader/loader";
-import Date from "../components/date/date";
 import ArticleOverview from "../components/articleOverview/articleOverview";
 import FeatureArticle from "../components/article/featureArticle/featureArticle";
+import DataLoader from "../components/dataLoader/dataLoader";
 
 // Hooks & Helpers
-import useSWR from "swr";
+import useSWR from "SWR";
 import { fetcher } from "../lib/helper";
+import { useEffect } from "react";
+
+// State Providers
+import { ArticlesProvider } from "../stateContainers/articlesContainer";
 
 export default function Home() {
-  const articles = useSWR("http://localhost:3000/api/articles", fetcher);
-  const featureArticle = useSWR(
-    "http://localhost:3000/api/articles/featureArticle",
-    fetcher
-  );
+  const { articles, setArticles, featureArticle, setFeatureArticle } =
+    ArticlesProvider.useContainer();
+  const fetchedArticles = useSWR(`articles`, fetcher);
+  const fetchedFeatureArticle = useSWR(`articles/featureArticle`, fetcher);
 
-  if (articles.error || featureArticle.error) return <div>Failed to load</div>;
-  if (!articles.data || !featureArticle.data) return <Loader />;
+  useEffect(() => {
+    !articles && setArticles(fetchedArticles);
+    !featureArticle && setFeatureArticle(fetchedFeatureArticle);
+  }, []);
 
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <FeatureArticle {...featureArticle.data.featureArticle} />
-      <ArticleOverview
-        title={"LATEST ARTICLES"}
-        articles={articles.data.articles}
-      />
-    </Layout>
+    <DataLoader data={[articles, featureArticle]}>
+      <Layout home>
+        <Head>
+          <title>{siteTitle}</title>
+        </Head>
+        {featureArticle && featureArticle.data && (
+          <FeatureArticle {...featureArticle.data.featureArticle} />
+        )}
+        {articles && articles.data && (
+          <ArticleOverview
+            title={"LATEST ARTICLES"}
+            articles={articles.data.articles}
+          />
+        )}
+      </Layout>
+    </DataLoader>
   );
 }

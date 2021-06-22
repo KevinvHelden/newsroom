@@ -20,8 +20,8 @@ export default function ArticleOverview({ articles, title }: Props) {
       </div>
 
       <div className={styles.articles}>
-        {articles.map((article: any) => (
-          <Article {...article} />
+        {articles.map((article: any, index: number) => (
+          <Article key={index} {...article} />
         ))}
       </div>
     </div>
