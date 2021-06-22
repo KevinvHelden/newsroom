@@ -1,6 +1,7 @@
 import styles from "./articleOverview.module.scss";
 import Article, { Article as ArticleProps } from "../article/article";
 import Link from "next/link";
+import Icon from "../icon/icon";
 
 type Props = {
   articles: ArticleProps[];
@@ -13,8 +14,9 @@ export default function ArticleOverview({ articles, title }: Props) {
       <div>
         <p className="bold">{title}</p>
         <Link href="/articles">
-          <a>
+          <a className={styles.viewAll}>
             <p>View all</p>
+            <Icon type="arrow-right" colour="red" />
           </a>
         </Link>
       </div>

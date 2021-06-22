@@ -2,16 +2,30 @@
 
 .root {
   display: flex;
-  padding: 0 0 10px 0;
-  height: fit-content;
-  width: 300px;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1.5px $black_80 solid;
-  outline: none;
-  @include text("CircularBook", $pSize, $white);
+  align-items: center;
+  position: relative;
+
+  .input {
+    display: flex;
+    padding: 0 34px 10px 0;
+    height: fit-content;
+    width: 300px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.5px $black_80 solid;
+    outline: none;
+    @include text("CircularBook", $pSize, $white);
+  }
 
   &::placeholder {
     @include text("CircularBook", $pSize, $black_50);
+  }
+
+  > img {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    filter: invert(24%) sepia(6%) saturate(82%) hue-rotate(131deg)
+      brightness(99%) contrast(99%) !important;
   }
 }

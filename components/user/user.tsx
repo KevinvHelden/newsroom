@@ -2,6 +2,7 @@ import styles from "./user.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import classnames from "classnames";
+import Icon from "../icon/icon";
 
 type Props = {
   user: {
@@ -26,8 +27,10 @@ export default function User({ user, hasPicture, alignPictureLeft }: Props) {
         <p className={"bold"}>{username}</p>
         {hasPicture && (
           <div className={styles.imageContainer}>
-            {profilePicture && (
+            {profilePicture ? (
               <Image src={profilePicture} width={35} height={35} />
+            ) : (
+              <Icon type="user" colour="black50" />
             )}
           </div>
         )}

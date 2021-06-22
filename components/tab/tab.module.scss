@@ -12,6 +12,12 @@
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+  gap: 10px;
+
+  > img {
+    filter: invert(41%) sepia(5%) saturate(56%) hue-rotate(131deg)
+      brightness(96%) contrast(88%) !important;
+  }
 
   &:hover,
   &:focus {
@@ -19,6 +25,11 @@
 
     p {
       color: $white;
+    }
+
+    > img {
+      filter: invert(100%) sepia(97%) saturate(2%) hue-rotate(267deg)
+        brightness(112%) contrast(101%) !important;
     }
   }
 
@@ -29,6 +40,11 @@
   &.active {
     p {
       color: $white;
+    }
+
+    > img {
+      filter: invert(100%) sepia(97%) saturate(2%) hue-rotate(267deg)
+        brightness(112%) contrast(101%) !important;
     }
   }
 }

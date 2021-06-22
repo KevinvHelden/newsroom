@@ -3,6 +3,7 @@ import Link from "next/link";
 import User from "../../user/user";
 import Date from "../../date/date";
 import Button from "../../button/button";
+import Icon from "../../icon/icon";
 
 type Props = {
   id: string;
@@ -66,7 +67,9 @@ export default function FeatureArticle({
           </div>
           <p>{description}</p>
           <Link href={`/articles/${id}`}>
-            <Button>Read more</Button>
+            <Button>
+              Read more <Icon type="arrow-right" />
+            </Button>
           </Link>
         </div>
       </div>

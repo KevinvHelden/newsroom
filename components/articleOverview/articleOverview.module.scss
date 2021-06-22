@@ -3,6 +3,11 @@
   flex-direction: column;
   width: 100%;
 
+  .viewAll {
+    display: flex;
+    gap: 10px;
+  }
+
   ::-webkit-scrollbar {
     width: 10px;
   }
